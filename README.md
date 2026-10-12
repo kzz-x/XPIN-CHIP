@@ -48,3 +48,11 @@ npm run dev
 **当前边界：** 内部采用通用示意布局及程序化线路纹理，并非任何厂商的真实 die floorplan。图片自动解析成可编辑架构与 Logo / 图案浮雕属于后续 P3；当前贴图上传只处理平面图层。逐帧可定位的专业动画时间线属于 P4。
 
 芯片数据在 `public/chips/demo/`，修改 JSON 即可更换布局、注释、材质、镜头和讲解顺序；外壳立体字由 `chip.config.json` 定义。
+
+## 单文件离线版
+
+直接下载 **[XPIN-CHIP-Standalone.html](XPIN-CHIP-Standalone.html)**，双击用 Chrome / Edge 打开。Three.js、内置字体、Demo 芯片结构、CSS 与互动逻辑均已内嵌，**离线可运行，无需 npm、服务器、CDN 或其他文件**。
+
+页面右侧可调整外壳显隐/颜色、玻璃透明度、拆解程度，以及上传自己的顶面图片；点击架构模块聚焦；底部切换演示步骤；按 `H` 切换无 UI 画面。
+
+每次主仓库源码更新，GitHub Actions 会重新构建此离线 HTML。源代码仍在 `src/` 和 `public/chips/demo/` 中，便于 Codex 持续编辑。
