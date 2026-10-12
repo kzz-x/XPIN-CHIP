@@ -153,7 +153,7 @@ for(let i=0;i<layout.length;i++){
   runtimes.push({data:b,group,glass,mat,edge,label});
 }
 const allGlass=runtimes.map(b=>b.glass);
-const font=new FontLoader().parse(fontJson as unknown as object);
+const font=new FontLoader().parse(fontJson);
 const cover=new THREE.Group();chipRoot.add(cover);
 const shellMaterial=new THREE.MeshPhysicalMaterial({color:chip.shell.color,metalness:materials.shell.metalness,
   roughness:materials.shell.roughness,clearcoat:materials.shell.clearcoat,clearcoatRoughness:.16});
