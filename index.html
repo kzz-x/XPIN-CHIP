@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>XPIN CHIP · 三维芯片解构</title></head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand"><div class="brand-symbol">X</div><div><strong>XPIN <span>CHIP</span></strong><small>CHIP ANATOMY ENGINE / V0.1</small></div></div>
+    <div class="topmeta"><span class="pulse"></span> LIVE 3D ENGINE <span class="separator"></span> DEMO SILICON</div>
+    <button id="cleanBtn" class="top-action" title="隐藏/显示所有控件（H）">无 UI 预览 <span>↗</span></button>
+  </header>
+  <main class="workspace">
+    <section id="viewport" class="viewport">
+      <div class="view-top"><span class="eyebrow">TECHNICAL VISUALIZATION / 001</span><h1 id="heroTitle">CHIP<br/><em>ARCHITECTURE</em></h1><p>可交互玻璃化芯片架构 / 可拆外壳</p></div>
+      <div class="view-ribbon"><span>01 / PROCESSOR</span><span>INTERACTIVE HARDWARE</span><span>WEBGL · PBR</span></div>
+      <div class="view-bottom"><span>左键旋转 · 滚轮缩放 · 右键平移 · 点击架构模块聚焦</span><span id="renderStatus">SCENE READY</span></div>
+    </section>
+    <aside id="controlPanel" class="control-panel">
+      <div class="panel-heading"><div><span class="eyebrow">CONTROL STATION</span><h2>差点控件 <span>01</span></h2></div><span class="panel-dot"></span></div>
+      <div class="panel-scroll">
+        <section class="panel-section"><h3>场景 <span>SCENE</span></h3>
+          <div class="control-buttons"><button id="overviewBtn" class="solid">总览视角</button><button id="shellViewBtn">外壳展示</button></div>
+          <label class="toggle-row"><span>显示芯片外壳</span><input id="shellToggle" type="checkbox" checked/></label>
+          <label class="toggle-row"><span>显示内部架构</span><input id="coreToggle" type="checkbox" checked/></label>
+          <div class="range-head"><span>爆炸 / 外壳抬升</span><output id="explodeValue">82%</output></div><input id="explodeInput" type="range" min="0" max="100" value="82"/>
+        </section>
+        <section class="panel-section"><h3>光学与材质 <span>MATERIAL</span></h3>
+          <div class="range-head"><span>玻璃实体可见度</span><output id="glassValue">62%</output></div><input id="glassInput" type="range" min="15" max="100" value="62"/>
+          <label class="color-row"><span>外壳表面颜色</span><input id="shellColor" type="color" value="#721916"/></label>
+          <label class="upload-row" for="textureInput"><span>替换顶盖平面贴图</span><span>上传图片 ↗</span></label><input id="textureInput" type="file" accept="image/*" hidden/>
+          <p class="hint">品牌浮雕为独立 3D 字体；贴图支持叠加，图形自动矢量重建在后续阶段。</p>
+        </section>
+        <section class="panel-section"><h3>芯片架构 <span>ANATOMY</span></h3>
+          <div id="blockButtons" class="block-buttons"></div>
+        </section>
+        <section class="panel-section selected-section"><span class="eyebrow">SELECTED COMPONENT</span><h2 id="selectedTitle">通用移动 SoC</h2><p id="selectedDesc">点击模块，自动推进镜头并显示对应科普说明。</p></section>
+      </div>
+    </aside>
+  </main>
+  <footer id="timeline" class="timeline">
+    <div class="timeline-identity"><span class="eyebrow">PRESENTATION TIMELINE</span><strong id="stepName">总览 / OVERVIEW</strong></div>
+    <div class="transport"><button id="prevBtn" title="上一步">‹</button><button id="playBtn" class="play" title="播放 / 暂停">▶</button><button id="nextBtn" title="下一步">›</button></div>
+    <div class="timeline-progress"><input id="stepRange" type="range" min="0" max="5" value="0" step="1"/><div class="ticks"><span>OVERVIEW</span><span>CPU</span><span>GPU</span><span>NPU</span><span>DETAIL</span><span>RESET</span></div></div>
+    <span id="stepCounter" class="counter">01 / 06</span>
+  </footer>
+</div>
+<script type="module" src="/src/main.ts"></script>
+</body></html>

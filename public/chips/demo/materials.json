@@ -1,0 +1,19 @@
+{
+  "glass": {
+    "opacity": 0.62,
+    "roughness": 0.12,
+    "transmission": 0.36,
+    "ior": 1.45,
+    "thickness": 0.9
+  },
+  "shell": {
+    "metalness": 0.86,
+    "roughness": 0.23,
+    "clearcoat": 0.6
+  },
+  "lighting": {
+    "exposure": 1.42,
+    "accentWarm": "#ff7a4f",
+    "accentCool": "#6a9bff"
+  }
+}

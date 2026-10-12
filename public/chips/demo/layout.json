@@ -1,0 +1,62 @@
+[
+  {
+    "id": "cpu",
+    "label": "CPU",
+    "type": "PROCESSOR",
+    "x": -2.36,
+    "z": -1.56,
+    "width": 4.65,
+    "depth": 2.45,
+    "thickness": 0.35,
+    "color": "#ffb357",
+    "description": "通用计算与指令执行：调度逻辑、性能核与能效核在此作为概念化分区呈现。"
+  },
+  {
+    "id": "gpu",
+    "label": "GPU",
+    "type": "GRAPHICS",
+    "x": 2.31,
+    "z": -1.56,
+    "width": 4.55,
+    "depth": 2.45,
+    "thickness": 0.35,
+    "color": "#4bb5ff",
+    "description": "图形渲染与并行计算模块。真实内部版图应依据该芯片的官方数据核对。"
+  },
+  {
+    "id": "npu",
+    "label": "NPU",
+    "type": "AI ACCELERATOR",
+    "x": -2.3,
+    "z": 1.27,
+    "width": 4.75,
+    "depth": 2.12,
+    "thickness": 0.35,
+    "color": "#df70ff",
+    "description": "专用 AI 运算加速区：可独立高亮并聚焦讲解神经网络计算流程。"
+  },
+  {
+    "id": "isp",
+    "label": "ISP",
+    "type": "IMAGE PROCESSOR",
+    "x": 1.58,
+    "z": 1.27,
+    "width": 2.76,
+    "depth": 2.12,
+    "thickness": 0.35,
+    "color": "#ff6fb5",
+    "description": "图像信号处理器：影像处理管线以结构化模块示意展示。"
+  },
+  {
+    "id": "memory",
+    "label": "MEM",
+    "type": "MEMORY / IO",
+    "x": 3.97,
+    "z": 1.27,
+    "width": 1.05,
+    "depth": 2.12,
+    "thickness": 0.35,
+    "color": "#9bedd7",
+    "description": "存储控制及 I/O 相关区域，为示意布局，不代表真实封装版图。"
+  }
+]

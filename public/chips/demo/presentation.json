@@ -1,0 +1,32 @@
+[
+  {
+    "name": "总览 / OVERVIEW",
+    "focus": null,
+    "explode": 0.82
+  },
+  {
+    "name": "核心计算 / CPU",
+    "focus": "cpu",
+    "explode": 0.82
+  },
+  {
+    "name": "图形架构 / GPU",
+    "focus": "gpu",
+    "explode": 0.82
+  },
+  {
+    "name": "AI 引擎 / NPU",
+    "focus": "npu",
+    "explode": 0.82
+  },
+  {
+    "name": "影像处理 / ISP",
+    "focus": "isp",
+    "explode": 1
+  },
+  {
+    "name": "复位与外壳 / RESET",
+    "focus": null,
+    "explode": 0
+  }
+]

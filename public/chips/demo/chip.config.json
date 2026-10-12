@@ -1,0 +1,18 @@
+{
+  "id": "demo-mobile-soc",
+  "name": "XPIN Concept Silicon",
+  "tagline": "DEMO / MOBILE COMPUTING",
+  "width": 10.4,
+  "depth": 7.35,
+  "shell": {
+    "brand": "XPIN",
+    "model": "CHIP STUDIO / 01",
+    "color": "#721916",
+    "accent": "#dca67d",
+    "texture": null
+  },
+  "defaults": {
+    "explode": 0.82,
+    "glassOpacity": 0.62
+  }
+}
