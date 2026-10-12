@@ -5,6 +5,12 @@ import { FontLoader } from 'three/addons/loaders/FontLoader.js';
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 import fontJson from 'three/examples/fonts/helvetiker_bold.typeface.json';
 import './style.css';
+import chipJson from '../public/chips/demo/chip.config.json';
+import layoutJson from '../public/chips/demo/layout.json';
+import annotationsJson from '../public/chips/demo/annotations.json';
+import materialsJson from '../public/chips/demo/materials.json';
+import camerasJson from '../public/chips/demo/cameraPresets.json';
+import stepsJson from '../public/chips/demo/presentation.json';
 
 type BlockData = { id:string; label:string; type:string; x:number; z:number; width:number; depth:number; thickness:number; color:string; description:string };
 type ChipData = { id:string; name:string; tagline:string; width:number; depth:number; shell:{brand:string;model:string;color:string;accent:string;texture:string|null}; defaults:{explode:number;glassOpacity:number} };
@@ -15,20 +21,12 @@ type Annotation = Record<string,{title:string;body:string}>;
 type BlockRuntime = {data:BlockData;group:THREE.Group;glass:THREE.Mesh;mat:THREE.MeshPhysicalMaterial;edge:THREE.LineLoop;label:THREE.Mesh};
 
 const byId = <T extends HTMLElement>(id:string) => document.getElementById(id) as T;
-const baseUrl = import.meta.env.BASE_URL + 'chips/demo/';
-async function loadJson<T>(file:string):Promise<T>{
-  const response = await fetch(baseUrl + file);
-  if(!response.ok) throw new Error(file + ': HTTP ' + response.status);
-  return response.json() as Promise<T>;
-}
-const [chip, layout, annotations, materials, cameraPresets, steps] = await Promise.all([
-  loadJson<ChipData>('chip.config.json'),
-  loadJson<BlockData[]>('layout.json'),
-  loadJson<Annotation>('annotations.json'),
-  loadJson<MaterialData>('materials.json'),
-  loadJson<Record<string,CameraPreset>>('cameraPresets.json'),
-  loadJson<Step[]>('presentation.json')
-]);
+const chip = chipJson as ChipData;
+const layout = layoutJson as BlockData[];
+const annotations = annotationsJson as Annotation;
+const materials = materialsJson as MaterialData;
+const cameraPresets = camerasJson as Record<string, CameraPreset>;
+const steps = stepsJson as Step[];
 
 const viewport = byId<HTMLDivElement>('viewport');
 const scene = new THREE.Scene();
