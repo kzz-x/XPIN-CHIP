@@ -1,12 +1,14 @@
 {
   "name": "xpin-chip",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc --noEmit && vite build --base=./",
-    "preview": "vite preview --host 0.0.0.0"
+    "preview": "vite preview --host 0.0.0.0",
+    "standalone": "npm run build && node scripts/build-standalone.mjs",
+    "validate": "node scripts/validate-layout.mjs"
   },
   "dependencies": {
     "three": "^0.180.0"

@@ -4,35 +4,57 @@
 <body>
 <div id="app">
   <header class="topbar">
-    <div class="brand"><div class="brand-symbol">X</div><div><strong>XPIN <span>CHIP</span></strong><small>CHIP ANATOMY ENGINE / V0.1</small></div></div>
-    <div class="topmeta"><span class="pulse"></span> LIVE 3D ENGINE <span class="separator"></span> DEMO SILICON</div>
+    <div class="brand"><div class="brand-symbol">X</div><div><strong>XPIN <span>CHIP</span></strong><small>CHIP ANATOMY ENGINE / V0.2</small></div></div>
+    <div class="topmeta"><span class="pulse"></span> PRODUCT STUDIO <span class="separator"></span> FIVE PLATFORMS</div>
     <button id="cleanBtn" class="top-action" title="隐藏/显示所有控件（H）">无 UI 预览 <span>↗</span></button>
   </header>
   <main class="workspace">
     <section id="viewport" class="viewport">
-      <div class="view-top"><span class="eyebrow">TECHNICAL VISUALIZATION / 001</span><h1 id="heroTitle">CHIP<br/><em>ARCHITECTURE</em></h1><p>可交互玻璃化芯片架构 / 可拆外壳</p></div>
+      <div class="view-top"><span class="eyebrow">SILICON / PRODUCT STUDY</span><h1 id="heroTitle">天玑 9600 Pro</h1><p id="heroNote">玻璃架构 · 精密封装</p></div>
       <div class="view-ribbon"><span>01 / PROCESSOR</span><span>INTERACTIVE HARDWARE</span><span>WEBGL · PBR</span></div>
       <div class="view-bottom"><span>左键旋转 · 滚轮缩放 · 右键平移 · 点击架构模块聚焦</span><span id="renderStatus">SCENE READY</span></div>
     </section>
     <aside id="controlPanel" class="control-panel">
-      <div class="panel-heading"><div><span class="eyebrow">CONTROL STATION</span><h2>差点控件 <span>01</span></h2></div><span class="panel-dot"></span></div>
+      <div class="panel-heading"><div><span class="eyebrow">CONTROL STATION</span><h2>芯片工作室 <span>02</span></h2></div><span class="panel-dot"></span></div>
       <div class="panel-scroll">
+        <section class="panel-section"><h3>芯片型号 <span>PLATFORM</span></h3>
+          <label class="field-label" for="chipSelect">选择芯片</label><select id="chipSelect"></select>
+          <p class="hint" id="profileNote"></p>
+        </section>
         <section class="panel-section"><h3>场景 <span>SCENE</span></h3>
-          <div class="control-buttons"><button id="overviewBtn" class="solid">总览视角</button><button id="shellViewBtn">外壳展示</button></div>
+          <div class="control-buttons"><button id="overviewBtn" class="solid">展开架构</button><button id="shellViewBtn">闭合外壳</button><button id="topViewBtn">正面架构</button><button id="resetBtn">复位镜头</button></div>
           <label class="toggle-row"><span>显示芯片外壳</span><input id="shellToggle" type="checkbox" checked/></label>
           <label class="toggle-row"><span>显示内部架构</span><input id="coreToggle" type="checkbox" checked/></label>
           <div class="range-head"><span>爆炸 / 外壳抬升</span><output id="explodeValue">82%</output></div><input id="explodeInput" type="range" min="0" max="100" value="82"/>
         </section>
         <section class="panel-section"><h3>光学与材质 <span>MATERIAL</span></h3>
-          <div class="range-head"><span>玻璃实体可见度</span><output id="glassValue">62%</output></div><input id="glassInput" type="range" min="15" max="100" value="62"/>
+          <label class="field-label" for="lightingSelect">布光预设</label><select id="lightingSelect"><option value="studio">珠宝棚光</option><option value="red">红色发布会</option><option value="neutral">冷调精密</option></select>
+          <div class="range-head"><label for="exposureInput">曝光</label><output id="exposureValue">1.10</output></div><input id="exposureInput" type="range" min="60" max="180" value="110"/>
+          <div class="range-head"><label for="glassInput">玻璃实体可见度</label><output id="glassValue">78%</output></div><input id="glassInput" type="range" min="0" max="100" value="78"/>
+          <div class="range-head"><label for="roughnessInput">玻璃磨砂程度</label><output id="roughnessValue">8%</output></div><input id="roughnessInput" type="range" min="2" max="65" value="8"/>
+          <div class="range-head"><label for="flowInput">内部数据流强度</label><output id="flowValue">18%</output></div><input id="flowInput" type="range" min="0" max="100" value="18"/>
+          <div class="range-head"><label for="speedInput">数据流速度</label><output id="speedValue">0.35×</output></div><input id="speedInput" type="range" min="0" max="150" value="35"/>
+          <label class="toggle-row"><span>工作台网格</span><input id="gridToggle" type="checkbox"/></label>
+        </section>
+        <section class="panel-section"><h3>顶盖设计 <span>IDENTITY</span></h3>
+          <label class="field-label" for="identitySelect">顶盖内容</label><select id="identitySelect"><option value="reference">参考顶盖</option><option value="custom">自定义文字</option><option value="none">无标识</option></select>
+          <label class="field-label" for="brandInput">品牌 / 主文字</label><input id="brandInput" type="text" maxlength="36"/>
+          <label class="field-label" for="modelInput">型号 / 副文字</label><input id="modelInput" type="text" maxlength="60"/>
+          <p class="hint">修改文字自动切换到自定义模式。支持中文，清空即去掉对应文字。</p>
           <label class="color-row"><span>外壳表面颜色</span><input id="shellColor" type="color" value="#721916"/></label>
           <label class="upload-row" for="textureInput"><span>替换顶盖平面贴图</span><span>上传图片 ↗</span></label><input id="textureInput" type="file" accept="image/*" hidden/>
-          <p class="hint">品牌浮雕为独立 3D 字体；贴图支持叠加，图形自动矢量重建在后续阶段。</p>
+          <button id="clearTextureBtn" class="secondary-button">恢复内置顶盖</button>
+          <p class="hint">内置参考图已离线嵌入。上传图片以正方形顶盖展示；切换型号保留各款编辑。</p>
+        </section>
+        <section class="panel-section"><h3>保存与输出 <span>OUTPUT</span></h3>
+          <div class="control-buttons"><button id="saveHtmlBtn">保存当前单 HTML</button><button id="savePngBtn">导出当前 PNG</button></div>
+          <p class="hint">离线单 HTML 可保存五款编辑、上传图片、材质和镜头；PNG 只包含三维画面。</p>
         </section>
         <section class="panel-section"><h3>芯片架构 <span>ANATOMY</span></h3>
           <div id="blockButtons" class="block-buttons"></div>
+          <label class="toggle-row"><span>仅显示选中模块</span><input id="isolateToggle" type="checkbox"/></label>
         </section>
-        <section class="panel-section selected-section"><span class="eyebrow">SELECTED COMPONENT</span><h2 id="selectedTitle">通用移动 SoC</h2><p id="selectedDesc">点击模块，自动推进镜头并显示对应科普说明。</p></section>
+        <section class="panel-section selected-section"><span class="eyebrow">SELECTED COMPONENT</span><h2 id="selectedTitle">天玑 9600 Pro</h2><p id="selectedDesc">点击模块，自动推进镜头并显示对应科普说明。</p><div id="sourceLinks" class="source-links"></div></section>
       </div>
     </aside>
   </main>
@@ -42,6 +64,7 @@
     <div class="timeline-progress"><input id="stepRange" type="range" min="0" max="5" value="0" step="1"/><div class="ticks"><span>OVERVIEW</span><span>CPU</span><span>GPU</span><span>NPU</span><span>DETAIL</span><span>RESET</span></div></div>
     <span id="stepCounter" class="counter">01 / 06</span>
   </footer>
+  <button id="restoreUiBtn" title="显示控件（H）">显示控件 · H</button>
 </div>
 <script type="module" src="/src/main.ts"></script>
 </body></html>
