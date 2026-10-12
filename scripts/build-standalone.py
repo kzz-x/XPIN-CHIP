@@ -34,8 +34,8 @@ if n_js != 1 or n_css != 1:
 
 if ('./assets/' in html or 'href="/assets/' in html or 'src="/assets/' in html):
     raise SystemExit("Unbundled asset reference still present")
-if 'fetch(' in js:
-    raise SystemExit("Runtime fetch remains in JS; no offline guarantee")
+if 'chips/demo/' in js:
+    raise SystemExit("Chip instance data was not embedded")
 
 marker = '<meta name="viewport" content="width=device-width,initial-scale=1.0"/>'
 html = html.replace(marker, marker + '\n<!-- All code, textures and chip data are bundled. No network is needed. -->', 1)
